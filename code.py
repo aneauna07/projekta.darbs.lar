@@ -1,6 +1,9 @@
 import PyPDF2
 import os
-import pandas
+from openpyxl import Workbook, load_workbook
+from datetime import timedelta
+
+input = input("vards:")
 
 klienti=[]
 
@@ -78,7 +81,80 @@ inventars1 = []
 inventars1 = [[inventars[i], cena[i]] for i in range(min(len(inventars), len(cena)))]
 
 
-fails = pandas.read_excel("noma.xlsx", sheet_name="sheet1") 
-info_list = fails.values.tolist()
+wb=load_workbook('noma1.xlsx')
+noma=[]
+ws=wb.active
+max_row=ws.max_row                      
+for row in range(2,200):                 
+    r_data=[]
+    a_value=ws['A'+str(row)].value            
+    b_value=ws['B'+str(row)].value 
+    c_value=ws['C'+str(row)].value     
+    r_data.append(a_value)
+    r_data.append(b_value)
+    r_data.append(c_value)       
+    noma.append(r_data)
 
-print(info_list)
+
+code = 0
+
+for x in range(len(klienti)):
+    i = klienti[x][1]
+    if i == input:
+        code = klienti[x][0]
+        break
+
+laiks= []
+inv = []
+
+for x in range(len(noma)):
+    row=[]
+    i = noma[x][0]
+    if i == code:
+        laiks.append(noma[x][1])
+        inv.append(noma[x][2])
+     
+name_to_element = {item[0]: item[1] for item in inventars1}
+
+result_elements = [name_to_element[name] for name in inv if name in name_to_element]
+
+laiks_maksa = [[laiks[i], result_elements[i]] for i in range(min(len(laiks), len(result_elements)))]
+
+
+indekss = 1
+float_inv1 = [[float(element) if index == indekss else element for index, element in enumerate(row)] for row in inventars1]
+
+cenamin =[]
+for row in float_inv1:
+    cenaa = row[indekss] / 60.00
+    cenamin.append(cenaa)
+
+laiks_maksa_min = [[cenamin[i], laiks_maksa[i]] for i in range(min(len(cenamin), len(laiks_maksa)))]
+
+sum = 0
+total_hours = 0
+total_minutes = 0
+stundas_kop = 0
+min_kop = 0
+sec_kop = 0
+
+for item in laiks_maksa_min:
+    hours = item[1][0].hour
+    minutes = item[1][0].minute
+    seconds = item[1][0].second
+
+    total_hours += hours * float(item[1][1])
+    total_minutes += minutes * item[0]
+    sum = total_hours + total_minutes
+
+    stundas_kop = stundas_kop + hours
+    min_kop = min_kop + minutes
+    sec_kop = sec_kop + seconds
+
+    total_time = timedelta(hours=stundas_kop, minutes=min_kop, seconds=sec_kop)
+
+formatted_sum = "{:.2f}".format(sum)
+
+print(formatted_sum+ "€")
+print(str(total_time))
+
