@@ -2,6 +2,7 @@ import PyPDF2
 import os
 from openpyxl import Workbook, load_workbook
 from datetime import timedelta
+import sys
 
 input = input("Klienta Vārds Uzvārds:")    #klients ievada vārdu un uzvārdu
 
@@ -102,7 +103,8 @@ for x in range(len(klienti)):
     i = klienti[x][1]
     if i == input:
         code = klienti[x][0]
-        break                       #ievaditais vards un uzvards tiek meklets klientu datubazes sarakstaa
+        break 
+                              #ievaditais vards un uzvards tiek meklets klientu datubazes sarakstaa
 
 laiks= []
 inv = []
@@ -113,6 +115,10 @@ for x in range(len(noma)):
     if i == code:
         laiks.append(noma[x][1])
         inv.append(noma[x][2])
+    else:
+        print("0.00€")
+        print("00:00:00")
+        sys.exit()
      
 apvienojums = {item[0]: item[1] for item in inventars1}
 
@@ -161,5 +167,3 @@ if code != 0:
 else:
     print("0.00€")
     print("00:00:00")
-
-
