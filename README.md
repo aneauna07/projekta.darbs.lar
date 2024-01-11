@@ -1,3 +1,3 @@
 # projekta.darbs.lar
 
-Aaa
+##Programmas uzdevums:
