@@ -38,5 +38,6 @@ Lietotājam jānodrošina vārda un uzvārda ievadīšana. Kad tas izdarīts, kl
 
 ### Izmantotās Python bibliotēkas:
 
+PyPDF2: Python bibliotēka, kas ļauj darboties ar PDF failiem. Šī bibliotēka piedāvā funkcijas, lai apvienotu, sadalītu un rediģētu PDF failus, kā arī izgūtu informāciju no PDF dokumentiem. Savā projektā es automātiski ieguvu tekstu no inventars.pdf faila programmēšanas veidā. 
 
 
