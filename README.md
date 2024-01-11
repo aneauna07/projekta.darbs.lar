@@ -36,5 +36,7 @@ No inventars.pdf jāizgūst inventāra nosaukums un tā cena, ierakstot to masī
 
 Lietotājam jānodrošina vārda un uzvārda ievadīšana. Kad tas izdarīts, klienti.csv datu masīvā jaātrod šis vārds un uzvārds un jāiegūst attiecīgā cilvēka unikālais kods. Tālāk šis kods jasalīdzina ar noma1.xlsx datnu masīvu un jāatrod katra reize kad klients ir ko nomājis ( šīs reizes patstāvīgajiem klientiem atkārtojas ) un jāsaglabā katras nomas ilgums un kāds inventārs ir ticis nomāts. Tālāk no inventars.pdf datu masīva jāatrod šie nomātie inventāri un tā cena par 60 min. Uzņēmuma polise ir ka, ja konkrēts stundu skaits ir pārsniegts par minūtēm, tad tiek atsevišķi rēķināta cena 1 min ( maksa par 1 h/60 = maksa par 1 min). Jāaprēķina cik klients ir samaksājis par katru no inventāra nomāšanas reizēm un jāsaskaita kopā laiks, cik ilgi invnentārs ir nomāts. Laiks jāizvada uzskatāmā veidā.  
 
+### Izmantotās Python bibliotēkas:
+
 
 
