@@ -3,13 +3,13 @@ import os
 from openpyxl import Workbook, load_workbook
 from datetime import timedelta
 
-input = input("vards:")
+input = input("Klienta Vārds Uzvārds:")    #klients ievada vārdu un uzvārdu
 
 klienti=[]
 
 with open("klienti.csv", encoding="utf-8") as f:
     next(f)
-    for line in f:
+    for line in f:                                              #informācijas iegūšana no csv faila
         row=line.rstrip().split(";")
         klienti.append(row)
 
@@ -18,7 +18,7 @@ file="inventars.pdf"
 isExisting = os.path.exists(file)
 
 if isExisting == False:
-     print("0")                        #pārbaude vai fails eksistē
+     print("0")                        
      exit()
 else:
      if file!="":
@@ -78,7 +78,7 @@ else:
 
 inventars1 = []
 
-inventars1 = [[inventars[i], cena[i]] for i in range(min(len(inventars), len(cena)))]
+inventars1 = [[inventars[i], cena[i]] for i in range(min(len(inventars), len(cena)))]     #informācija no pdf faila apvienota vienā
 
 
 wb=load_workbook('noma1.xlsx')
@@ -91,7 +91,7 @@ for row in range(2,200):
     b_value=ws['B'+str(row)].value 
     c_value=ws['C'+str(row)].value     
     r_data.append(a_value)
-    r_data.append(b_value)
+    r_data.append(b_value)                         #informācijas iegūšana no xlsx faila
     r_data.append(c_value)       
     noma.append(r_data)
 
@@ -102,7 +102,7 @@ for x in range(len(klienti)):
     i = klienti[x][1]
     if i == input:
         code = klienti[x][0]
-        break
+        break                       #ievaditais vards un uzvards tiek meklets klientu datubazes sarakstaa
 
 laiks= []
 inv = []
@@ -114,20 +114,20 @@ for x in range(len(noma)):
         laiks.append(noma[x][1])
         inv.append(noma[x][2])
      
-name_to_element = {item[0]: item[1] for item in inventars1}
+apvienojums = {item[0]: item[1] for item in inventars1}
 
-result_elements = [name_to_element[name] for name in inv if name in name_to_element]
+rezultats = [apvienojums[name] for name in inv if name in apvienojums]          
 
-laiks_maksa = [[laiks[i], result_elements[i]] for i in range(min(len(laiks), len(result_elements)))]
+laiks_maksa = [[laiks[i], rezultats[i]] for i in range(min(len(laiks), len(rezultats)))]    #izveidots kopigs saraksts vajadzigajai informacijai
 
 
 indekss = 1
-float_inv1 = [[float(element) if index == indekss else element for index, element in enumerate(row)] for row in inventars1]
+float_inv1 = [[float(element) if index == indekss else element for index, element in enumerate(row)] for row in inventars1]   #cenas parveidotas par float
 
 cenamin =[]
 for row in float_inv1:
     cenaa = row[indekss] / 60.00
-    cenamin.append(cenaa)
+    cenamin.append(cenaa)                  #aprekinata cena par vienu min
 
 laiks_maksa_min = [[cenamin[i], laiks_maksa[i]] for i in range(min(len(cenamin), len(laiks_maksa)))]
 
@@ -139,22 +139,27 @@ min_kop = 0
 sec_kop = 0
 
 for item in laiks_maksa_min:
-    hours = item[1][0].hour
+    stundas = item[1][0].hour
     minutes = item[1][0].minute
-    seconds = item[1][0].second
+    sec = item[1][0].second         #izgutas laika vienibas
 
-    total_hours += hours * float(item[1][1])
+    total_hours += stundas * float(item[1][1])
     total_minutes += minutes * item[0]
-    sum = total_hours + total_minutes
+    sum = total_hours + total_minutes                     #aprekinata kopejaa maksajuma summa
 
-    stundas_kop = stundas_kop + hours
+    stundas_kop = stundas_kop + stundas
     min_kop = min_kop + minutes
-    sec_kop = sec_kop + seconds
+    sec_kop = sec_kop + sec              #aprekinats kopejais laiks
 
-    total_time = timedelta(hours=stundas_kop, minutes=min_kop, seconds=sec_kop)
+    koplaiks = timedelta(hours=stundas_kop, minutes=min_kop, seconds=sec_kop)   #vizuali attelots kopejais laiks
 
-formatted_sum = "{:.2f}".format(sum)
+formats_sum = "{:.2f}".format(sum)         #ar diviem cipariem aiz komata
 
-print(formatted_sum+ "€")
-print(str(total_time))
+if code != 0:
+    print(formats_sum+ "€")
+    print(str(koplaiks))
+else:
+    print("0.00€")
+    print("00:00:00")
+
 
