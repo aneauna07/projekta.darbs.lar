@@ -12,18 +12,18 @@ Ziemas sporta veidu inventāra nomas uzņēmumam ir trīs faili. inventars.pdf i
 
 Programmas sākumā jāievada patstāvīgā klienta vārds un uzvārds. 
 
-Shakira Irwin\n
-Aliza Rodgers
-Pippa Lynn
-Sadie Hoover
-Brenda Sheppard
-Melody Shaw
-Cory Brewer
-Donna Andrade
-Kasey Terry
-May Mack
-Keisha Snow
-Veronica Clarke
+Shakira Irwin, 
+Aliza Rodgers, 
+Pippa Lynn, 
+Sadie Hoover, 
+Brenda Sheppard, 
+Melody Shaw, 
+Cory Brewer, 
+Donna Andrade, 
+Kasey Terry, 
+May Mack, 
+Keisha Snow, 
+Veronica Clarke, 
 ...
 
 #### Izvaddati:
