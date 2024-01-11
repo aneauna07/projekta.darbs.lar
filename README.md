@@ -12,7 +12,7 @@ Ziemas sporta veidu inventāra nomas uzņēmumam ir trīs faili. inventars.pdf i
 
 Programmas sākumā jāievada patstāvīgā klienta vārds un uzvārds. 
 
-Shakira Irwin
+Shakira Irwin\n
 Aliza Rodgers
 Pippa Lynn
 Sadie Hoover
