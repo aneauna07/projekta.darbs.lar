@@ -6,7 +6,7 @@ Es ziemas periodā regulāri nodarbojos ar ziemas aktīvo sportu ( braukšanu ar
 
 ### Programmas uzdevums:
 
-Ziemas sporta veidu inventāra nomas uzņēmumam ir trīs faili. inventars.pdf ir skrejlapa, kura tiek izsūtīta klientiem un tajā atrodas informācija par nomas izcenojumu ( inventāra nosaukums, cena ). klienti.csv ir fails, kas satur informāciju par katru klientu ( unikālo kodu, vārdu un uzvārdu ). noma1.xlsx ir nomāšanas fails, kas satur informāciju par nomu ( unikālais kods, nomāšanas ilgums, iznomātais inventārs ).
+Ziemas sporta veidu inventāra nomas uzņēmumam ir trīs faili. inventars.pdf ir skrejlapa, kura tiek izsūtīta klientiem un tajā atrodas informācija par nomas izcenojumu ( inventāra nosaukums, cena ). klienti.csv ir fails, kas satur informāciju par katru klientu ( unikālo kodu, vārdu un uzvārdu ). noma1.xlsx ir nomāšanas fails, kas satur informāciju par nomu vienā mēnesi ( unikālais kods, nomāšanas ilgums, iznomātais inventārs ).
 
 #### Ievaddati:
 
@@ -27,6 +27,8 @@ Veronica Clarke,
 ...
 
 #### Izvaddati:
+
+Programmai jāizvvada kopējā summa ko ievadītais klients ir samaksājis iznomājot inventāru ( piem. 60.10
 
 
 
