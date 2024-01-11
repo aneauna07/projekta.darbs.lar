@@ -1,4 +1,5 @@
-# Projekta darbs
+# Projekta darbs 
+## Izstrādātājs: Ane Auna 231RDB223
 
 ### Projekta ideja:
 
@@ -39,5 +40,13 @@ Lietotājam jānodrošina vārda un uzvārda ievadīšana. Kad tas izdarīts, kl
 ### Izmantotās Python bibliotēkas:
 
 PyPDF2: Python bibliotēka, kas ļauj darboties ar PDF failiem. Šī bibliotēka piedāvā funkcijas, lai apvienotu, sadalītu un rediģētu PDF failus, kā arī izgūtu informāciju no PDF dokumentiem. Savā projektā es automātiski ieguvu tekstu no inventars.pdf faila programmēšanas veidā. 
+
+Openpyxl: Python bibliotēka, kas ļauj lasīt un rakstīt Microsoft Excel (xlsx) failos. Šī bibliotēka ir noderīga, ja ir nepieciešams programmējot apstrādāt datus Excel formātā, veikt izmaiņas esošajos failos vai veidot jaunus. Savā projektā es izmantoju Workbook, lai piekļūtu noma1.xlsx failam un load_workbook, lai piekļūtu un strādātu ar tās datiem. 
+
+DateTime: Python iebūvēts modulis, kas piedāvā klases un funkcijas, lai efektīvi darbotos ar datumiem un laiku. Šis modulis ļauj veikt dažādas darbības, piemēram, izgūt pašreizējo laiku, aprēķināt laika starpības, formatēt un analizēt datumus un laikus. Es savā projektā izmantoju timedelta, jo iegūtā laika atskaite no noma1.xlsx faila bija laika formātā un man vajadzēja no tā atsevišķi izgūt stundu un minūšu skaitu tālākajiem aprēķiniem.
+
+### Programmatūras izmantošanas metodes:
+
+Tā kā programmatūru es izstrādāju viena pati, tad izmantoju Agilo izstrādi ( Agile Development ). Es to izvēlējos, ņemot vērā tās iteratīvo raksturu, lai uzlabotu programmatūras kvalitāti. Nepārtraukta testēšana un caurspīdīgums nodrošināja projekta progresa redzamību visas izstrādes laikā. 
 
 
